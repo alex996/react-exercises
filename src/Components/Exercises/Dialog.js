@@ -5,7 +5,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog'
-import { Add } from 'material-ui-icons'
+import { Add } from '@material-ui/icons'
 import Form from './Form'
 
 export default class extends Component {
