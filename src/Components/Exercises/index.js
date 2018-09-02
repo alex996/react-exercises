@@ -14,11 +14,34 @@ import { withStyles } from '@material-ui/core/styles'
 import Form from './Form'
 
 const styles = theme => ({
-  Paper: {
-    padding: 20,
-    marginTop: 5,
-    height: 500,
-    overflowY: 'auto'
+  paper: {
+    padding: theme.spacing.unit * 3,
+    overflowY: 'auto',
+    [theme.breakpoints.up('sm')]: {
+      marginTop: 5,
+      height: 'calc(100% - 10px)'
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: '100%'
+    }
+  },
+  '@global': {
+    'html, body, #root': {
+      height: '100%'
+    }
+  },
+  container: {
+    [theme.breakpoints.up('sm')]: {
+      height: 'calc(100% - 64px - 48px)'
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: 'calc(100% - 56px - 48px)'
+    }
+  },
+  item: {
+    [theme.breakpoints.down('xs')]: {
+      height: '50%'
+    }
   }
 })
 
@@ -40,13 +63,14 @@ export default withStyles(styles)(
     onSelectEdit,
     onEdit
   }) =>
-  <Grid container>
-    <Grid item xs={12} sm={6}>
-      <Paper className={classes.Paper}>
+  <Grid container className={classes.container}>
+    <Grid item className={classes.item} xs={12} sm={6}>
+      <Paper className={classes.paper}>
         {exercises.map(([group, exercises]) =>
           !category || category === group
             ? <Fragment key={group}>
                 <Typography
+                  color='secondary'
                   variant='headline'
                   style={{ textTransform: 'capitalize' }}
                 >
@@ -61,10 +85,10 @@ export default withStyles(styles)(
                     >
                       <ListItemText primary={title} />
                       <ListItemSecondaryAction>
-                        <IconButton onClick={() => onSelectEdit(id)}>
+                        <IconButton color='primary' onClick={() => onSelectEdit(id)}>
                           <Edit />
                         </IconButton>
-                        <IconButton onClick={() => onDelete(id)}>
+                        <IconButton color='primary' onClick={() => onDelete(id)}>
                           <Delete />
                         </IconButton>
                       </ListItemSecondaryAction>
@@ -76,9 +100,9 @@ export default withStyles(styles)(
         )}
       </Paper>
     </Grid>
-    <Grid item xs={12} sm={6}>
-        <Paper className={classes.Paper}>
-          <Typography gutterBottom variant='display1'>
+      <Grid item className={classes.item} xs={12} sm={6}>
+        <Paper className={classes.paper}>
+          <Typography gutterBottom variant='display1' color='secondary'>
           {title}
           </Typography>
         {editMode
