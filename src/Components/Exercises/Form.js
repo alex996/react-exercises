@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import { TextField, Select, Button } from 'material-ui'
-import { FormControl } from 'material-ui/Form'
-import { InputLabel } from 'material-ui/Input'
-import { MenuItem } from 'material-ui/Menu'
-import { withStyles } from 'material-ui/styles'
+import {
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button
+} from '@material-ui/core'
 
-const styles = theme => ({
-  FormControl: {
-    width: 250
-  }
-})
-
-export default withStyles(styles)(class extends Component {
+export default class extends Component {
   state = this.getInitState()
 
   getInitState() {
@@ -29,30 +26,27 @@ export default withStyles(styles)(class extends Component {
       [name]: value
     })
 
-  handleSubmit = () => {
-    // TODO: validate
-
+  handleSubmit = () =>
     this.props.onSubmit({
       id: this.state.title.toLocaleLowerCase().replace(/ /g, '-'),
       ...this.state
     })
-  }
 
   render() {
     const { title, description, muscles } = this.state,
-          { classes, exercise, muscles: categories } = this.props
+          { exercise, muscles: categories } = this.props
 
     return <form>
       <TextField
-        label="Title"
+        label='Title'
         value={title}
         onChange={this.handleChange('title')}
-        margin="normal"
-        className={classes.FormControl}
+        margin='normal'
+        fullWidth
       />
       <br />
-      <FormControl className={classes.FormControl}>
-        <InputLabel htmlFor="muscles">
+      <FormControl fullWidth>
+        <InputLabel htmlFor='muscles'>
           Muscles
         </InputLabel>
         <Select
@@ -69,21 +63,22 @@ export default withStyles(styles)(class extends Component {
       <br />
       <TextField
         multiline
-        rows="4"
-        label="Description"
+        rows='4'
+        label='Description'
         value={description}
         onChange={this.handleChange('description')}
-        margin="normal"
-        className={classes.FormControl}
+        margin='normal'
+        fullWidth
       />
       <br />
       <Button
-        color="primary"
-        variant="raised"
+        color='primary'
+        variant='raised'
         onClick={this.handleSubmit}
+        disabled={!title || !muscles}
       >
         {exercise ? 'Edit' : 'Create'}
       </Button>
     </form>
   }
-})
+}

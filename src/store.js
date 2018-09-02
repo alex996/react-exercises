@@ -44,5 +44,5 @@ export const exercises = [
     title: 'Squats',
     description: 'Legs exercise...',
     muscles: 'legs'
-  },
+  }
 ]
