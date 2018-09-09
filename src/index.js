@@ -1,8 +1,8 @@
-import '@babel/polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { red, amber } from '@material-ui/core/colors'
+import App from './Components/App'
 
 const theme = createMuiTheme({
   palette: {
@@ -19,13 +19,9 @@ const theme = createMuiTheme({
   }
 })
 
-import(/* webpackChunkName: 'app' */ './Components/App')
-  .then(({ default: App }) =>
-    render(
-      <MuiThemeProvider theme={theme}>
-        <App />
-      </MuiThemeProvider>,
-      document.getElementById('root')
-    )
-  )
-
+render(
+  <MuiThemeProvider theme={theme}>
+    <App />
+  </MuiThemeProvider>,
+  document.getElementById('root')
+)
