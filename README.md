@@ -27,6 +27,10 @@ You can find code for each video on CodeSandbox.
 - [#13-14 Theming (Part 2 & 3)](https://codesandbox.io/s/8y1yol3p6l)
 - [#15 Context API](https://codesandbox.io/s/qq4oz0ym69)
 
+### 🚀 Optimizations
+
+To compare against the unoptimized bundle, switch to [spa/unoptimized branch](https://github.com/alex996/react-exercises/tree/spa/unoptimized).
+
 ## 💻 Installation
 
 ```sh
@@ -52,6 +56,14 @@ Builds a development bundle in `dist` folder.
 ### `yarn build` or `npm run build`
 
 Builds a production bundle in `dist` folder.
+
+### `yarn stats` or `npm run stats`
+
+Generates Webpack stats JSON file and renders a dependency treemap.
+
+### `yarn serve` or `npm run serve`
+
+Statically serves the contents of `dist` folder.
 
 ## ℹ️ Other
 
