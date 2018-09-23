@@ -11,7 +11,7 @@
     "serve": "serve dist"
   },
   "dependencies": {
-    "@material-ui/core": "^3.1.0",
+    "@material-ui/core": "^3.1.1",
     "@material-ui/icons": "^3.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
@@ -25,10 +25,10 @@
     "babel-loader": "^8.0.2",
     "babel-plugin-import": "^1.9.1",
     "html-webpack-plugin": "^4.0.0-alpha.2",
-    "serve": "^10.0.1",
+    "serve": "^10.0.2",
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9"
   }
 }
