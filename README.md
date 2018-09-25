@@ -1,5 +1,7 @@
 # react-exercises
 
+> **Note**: refer to this branch after you completed the [server-side rendering tutorial](https://youtu.be/gpGoxdVspx4). To get the starter code along with presentation notes, see [`ssr/starter` branch](https://github.com/alex996/react-exercises/tree/ssr/starter).
+
 Exercise database app built with [React](https://reactjs.org/) and [Material-UI](https://material-ui.com/) using [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/docs/en).
 
 ## 🔗 References
