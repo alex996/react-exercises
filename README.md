@@ -1,5 +1,7 @@
 # Material-UI - Server-side Rendering (SSR)
 
+> **Note**: use this branch along with its [companion video](https://youtu.be/gpGoxdVspx4) to migrate from SPA to SSR. For the latest code, see [master branch](https://github.com/alex996/react-exercises).
+
 Render the React app on the server, and boot it up on the client.
 
 ## Why
