@@ -1,10 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const nodeExternals = require('webpack-node-externals')
 
-module.exports = {
+const common = {
   devtool: 'cheap-module-source-map',
-  output: {
-    filename: '[name].[contenthash].js'
-  },
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
@@ -15,9 +12,24 @@ module.exports = {
       '@material-ui/core': '@material-ui/core/es'
     }
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html'
-    })
-  ]
 }
+
+module.exports = [
+  {
+    ...common,
+    entry: './src/client',
+    output: {
+      path: `${__dirname}/public`
+    }
+  },
+  {
+    ...common,
+    target: 'node',
+    entry: './src/server',
+    externals: [nodeExternals({
+      whitelist: [
+        /@material-ui\/core\/*./
+      ]
+    })]
+  }
+]

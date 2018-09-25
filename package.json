@@ -2,17 +2,18 @@
   "name": "react-exercises",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "dist/main.js",
   "scripts": {
-    "start": "webpack-dev-server --open --port 4000 --compress --mode development",
-    "dev": "rm -rf dist && webpack --mode development --progress",
-    "build": "rm -rf dist && webpack --mode production --progress",
-    "stats": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json dist",
-    "serve": "serve dist"
+    "start": "node dist/main",
+    "watch": "webpack --mode development --watch & nodemon dist/main",
+    "dev": "rm -rf dist public && webpack --mode development --progress",
+    "build": "rm -rf dist public && webpack --mode production --progress",
+    "stats": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json dist"
   },
   "dependencies": {
     "@material-ui/core": "^3.1.0",
     "@material-ui/icons": "^3.0.1",
+    "express": "^4.16.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
@@ -24,11 +25,11 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-import": "^1.9.1",
-    "html-webpack-plugin": "^4.0.0-alpha.2",
-    "serve": "^10.0.1",
+    "nodemon": "^1.18.4",
+    "reload": "^2.3.1",
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-node-externals": "^1.7.2"
   }
 }
