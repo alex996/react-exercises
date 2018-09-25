@@ -1,90 +1,55 @@
-# react-exercises
+# Material-UI - Server-side Rendering (SSR)
 
-Exercise database app built with [React](https://reactjs.org/) and [Material-UI](https://material-ui.com/) using [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/docs/en).
+Render the React app on the server, and boot it up on the client.
 
-## 🔗 References
+## Why
 
-### ▶️ YouTube
+- faster first meaningful paint
+  - initial render much quicker (ex: 10s vs. 3s on slow 3G)
+- better SEO (search engine optimization)
 
-This is a companion repo for [Material-UI video series](https://www.youtube.com/watch?v=xm4LX5fJKZ8&list=PLcCp4mjO-z98WAu4sd0eVha1g-NMfzHZk) on YouTube. Check out the playlist for all episodes.
+## How
 
-### 📖 Medium
+- client sends a `GET` request to the server
+- server renders the component tree into an `HTML` string
+- it extracts critical `CSS` and injects it inline
+- it sends off `HTML` & `CSS` as a response to the client
+- client paints the page with `HTML` & `CSS` and loads `JS` async (***viewable***)
+- once `JS` is loaded, React
+  - hydrates server-rendered markup, and
+  - attaches event listeners to existing markup (***interactive***)
 
-I also wrote [*Meet Material-UI — your new favorite user interface library*]( https://medium.freecodecamp.org/meet-your-material-ui-your-new-favorite-user-interface-library-6349a1c88a8c) on Medium freeCodeCamp. Check it out for an introduction to Material-UI.
+## Build Setup
 
+- have to transpile `JSX` server-side `preset-react`
+- might as well use `import` (`ESM`) and transpile to `require` (`CJS`)
+- for *dev*, could use `@babel/node` to compile on the fly in memory
+- for *prod*, could use `@babel/cli` to precompile our code for execution
+- might as well bundle with `webpack` since it's already part of build setup
 
-### ⏳ CodeSandbox
+## Integration
 
-You can find code for each video on CodeSandbox.
+##### Server
 
-- [#1-2 Intro / Grid Layout](https://codesandbox.io/s/r0o15l975q)
-- [#3-4 Data Store / Lists, Tabs & Typography](https://codesandbox.io/s/7j9krpx9l1)
-- [#5-6 Dialogs & Icons / Forms, Inputs & Styling](https://codesandbox.io/s/731j3kmyx6)
-- [#7-9 Lists & IconButtons / Forms (Part 1 & 2)](https://codesandbox.io/s/r51wkwp7ko)
-- [#10-11 CSS-in-JS / Styling with JSS](https://codesandbox.io/s/w64k1090o8)
-  - [old #10-11 with broken Edit](https://codesandbox.io/s/y3nvl77jqz)
-- [#12 Theming (Part 1)](https://codesandbox.io/s/0p069lyyyv)
-- [#13-14 Theming (Part 2 & 3)](https://codesandbox.io/s/8y1yol3p6l)
-- [#15 Context API](https://codesandbox.io/s/qq4oz0ym69)
+- `JssProvider`
+  - *sheets registry*: `SheetsRegistry`
+  - *class name generator*: `createGenerateClassName`
+- `MuiThemeProvider`
+  - *theme* *instance*: `createMuiTheme`
+  - *sheets manager*: `Map`
 
-### 🚀 Optimizations
+##### Client
 
-To compare against the unoptimized bundle, switch to [spa/unoptimized branch](https://github.com/alex996/react-exercises/tree/spa/unoptimized).
+- `JssProvider`
+  - *class name generator*: `createGenerateClassName`
+- `MuiThemeProvider`
+  - *theme instance*: `createMuiTheme`
 
-## 💻 Installation
+## Caveats
 
-```sh
-# Clone the repo
-git clone https://github.com/alex996/react-exercises.git
+Integration is a *very* intricate procedure! You must make sure to
 
-cd react-exercises
-
-# Install the deps
-yarn # (or npm install)
-```
-
-## 🏗️ Development
-
-### `yarn start` or `npm start`
-
-Serves the app at `localhost:4000` and watches files to re-builds the bundle.
-
-### `yarn dev` or `npm run dev`
-
-Builds a development bundle in `dist` folder.
-
-### `yarn build` or `npm run build`
-
-Builds a production bundle in `dist` folder.
-
-### `yarn stats` or `npm run stats`
-
-Generates Webpack stats JSON file and renders a dependency treemap.
-
-### `yarn serve` or `npm run serve`
-
-Statically serves the contents of `dist` folder.
-
-## ℹ️ Other
-
-### Import Path
-
-`material-ui` had a breaking change in [`v1.0.0-rc.0`](https://github.com/mui-org/material-ui/releases/tag/v1.0.0-rc.0) whereby the import path has been flattened. Ex:
-
-```diff
--import { Tab } from 'material-ui/Tabs'
-+import { Tab } from '@material-ui/core'
-```
-
-### Named Imports
-
-Uses [tree shaking](https://webpack.js.org/guides/tree-shaking/) for convenient [top-level imports](https://material-ui.com/guides/minimizing-bundle-size/#how-to-reduce-the-bundle-size-) like above.
-
-### Source Maps
-
-Uses [`cheap-module-source-map
-`](https://webpack.js.org/configuration/devtool/) for  debugging.
-
-### Browser Support
-
-Uses [`@babel/polyfill`](https://babeljs.io/docs/en/babel-polyfill.html) to support [popular browsers](http://browserl.ist/?q=%3E1%25%2C+not+ie+11%2C+not+op_mini+all).
+- provide a **new** *sheets manager* on each request
+- provide a **new** *class name generator* on each request
+- use `JssProvider` with a class name generator on the **client**
+- use the **same** version of `material-ui` on the client & server
