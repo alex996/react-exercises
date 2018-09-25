@@ -1,5 +1,7 @@
 # react-exercises
 
+> **Note**: refer to this branch after you completed the [bundle size optimization video](https://youtu.be/CGgEPHwzCUU). To get the starter code along with a thorough walkthrough guide, see [`spa/unoptimized` branch](https://github.com/alex996/react-exercises/tree/spa/unoptimized).
+
 Exercise database app built with [React](https://reactjs.org/) and [Material-UI](https://material-ui.com/) using [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/docs/en).
 
 ## 🔗 References
