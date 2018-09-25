@@ -2,6 +2,24 @@
 
 Exercise database app built with [React](https://reactjs.org/) and [Material-UI](https://material-ui.com/) using [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/docs/en).
 
+## ☘️ Branches
+
+This `master` branch houses the most up-to-date code. For a particular topic, switch to one of the following branches.
+
+#### 🚀 SPA bundle size-optimizations
+
+- **before** at [`spa/unoptimized`](https://github.com/alex996/react-exercises/tree/spa/unoptimized), and
+- **after** at [`spa/optimized`](https://github.com/alex996/react-exercises/tree/spa/optimized)
+  - [compare branches](https://github.com/alex996/react-exercises/compare/spa/unoptimized...spa/optimized) to view the diff, and
+  - see [README](https://github.com/alex996/react-exercises/tree/spa/unoptimized#readme) for a complete walkthrough
+
+#### 💾 SPA to SSR refactoring
+
+- **before** at [`ssr/starter`](https://github.com/alex996/react-exercises/tree/ssr/starter), and
+- **after** at [`ssr/final`](https://github.com/alex996/react-exercises/tree/ssr/final)
+  - [compare branches](https://github.com/alex996/react-exercises/compare/ssr/starter...ssr/final) to view the diff, and
+  - see the Markdown [presentation](https://github.com/alex996/react-exercises/tree/ssr/starter#readme) from the video
+
 ## 🔗 References
 
 ### ▶️ YouTube
@@ -26,10 +44,6 @@ You can find code for each video on CodeSandbox.
 - [#12 Theming (Part 1)](https://codesandbox.io/s/0p069lyyyv)
 - [#13-14 Theming (Part 2 & 3)](https://codesandbox.io/s/8y1yol3p6l)
 - [#15 Context API](https://codesandbox.io/s/qq4oz0ym69)
-
-### 🚀 Optimizations
-
-To compare against the unoptimized bundle, switch to [spa/unoptimized branch](https://github.com/alex996/react-exercises/tree/spa/unoptimized).
 
 ## 💻 Installation
 
