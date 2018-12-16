@@ -16,6 +16,9 @@ const theme = createMuiTheme({
   },
   spacing: {
     unit: 10
+  },
+  typography: {
+    useNextVariants: true
   }
 })
 

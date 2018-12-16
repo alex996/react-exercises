@@ -8,49 +8,51 @@ import {
   Button
 } from '@material-ui/core'
 
-export default class extends Component {
+class Form extends Component {
   state = this.getInitState()
 
-  getInitState() {
+  getInitState () {
     const { exercise } = this.props
 
-    return exercise
-      ? exercise
-      : {
-          title: '',
-          description: '',
-          muscles: ''
-        }
+    return exercise || {
+      title: '',
+      description: '',
+      muscles: ''
+    }
   }
 
-  handleChange = name => ({ target: { value } }) =>
+  handleChange = ({ target: { value, name } }) =>
     this.setState({
       [name]: value
     })
 
   handleSubmit = () =>
     this.props.onSubmit({
-      id: this.state.title.toLocaleLowerCase().replace(/ /g, '-'),
+      id: this.state.title.toLowerCase().replace(/ /g, '-'),
       ...this.state
     })
 
-  render() {
-    const { title, description, muscles } = this.state,
-      { exercise, muscles: categories } = this.props
+  render () {
+    const { title, description, muscles } = this.state
+    const { exercise, muscles: categories } = this.props
 
     return (
       <form>
         <TextField
-          label="Title"
+          label='Title'
           value={title}
-          onChange={this.handleChange('title')}
-          margin="normal"
+          name='title'
+          onChange={this.handleChange}
+          margin='normal'
           fullWidth
         />
-        <br />
-        <FormControl fullWidth>
-          <InputLabel htmlFor="muscles">Muscles</InputLabel>
-          <Select value={muscles} onChange={this.handleChange('muscles')}>
+        <FormControl fullWidth margin='normal'>
+          <InputLabel htmlFor='muscles'>Muscles</InputLabel>
+          <Select
+            value={muscles}
+            name='muscles'
+            onChange={this.handleChange}
+          >
             {categories.map(category => (
               <MenuItem key={category} value={category}>
                 {category}
@@ -58,20 +60,19 @@ export default class extends Component {
             ))}
           </Select>
         </FormControl>
-        <br />
         <TextField
           multiline
-          rows="4"
-          label="Description"
+          rows='4'
+          label='Description'
           value={description}
-          onChange={this.handleChange('description')}
-          margin="normal"
+          name='description'
+          onChange={this.handleChange}
+          margin='normal'
           fullWidth
         />
-        <br />
         <Button
-          color="primary"
-          variant="raised"
+          color='primary'
+          variant='contained'
           onClick={this.handleSubmit}
           disabled={!title || !muscles}
         >
@@ -81,3 +82,5 @@ export default class extends Component {
     )
   }
 }
+
+export default Form

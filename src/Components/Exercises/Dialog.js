@@ -1,16 +1,18 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import {
-  Button,
-  Dialog,
+  Fab,
+  Dialog as MuiDialog,
   DialogTitle,
   DialogContent,
   DialogContentText
 } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
-import Form from './Form'
-import { withContext } from '../../context'
+import { Form } from './'
+import { ExercisesContext } from '../../context'
 
-class CreateDialog extends Component {
+class Dialog extends Component {
+  static contextType = ExercisesContext
+
   state = {
     open: false
   }
@@ -24,29 +26,28 @@ class CreateDialog extends Component {
   handleFormSubmit = exercise => {
     this.handleToggle()
 
-    this.props.onCreate(exercise)
+    this.context.onCreate(exercise)
   }
 
-  render() {
-    const { open } = this.state,
-      { muscles } = this.props
+  render () {
+    const { open } = this.state
+    const { muscles } = this.context
 
     return (
-      <Fragment>
-        <Button
-          variant="fab"
+      <>
+        <Fab
           onClick={this.handleToggle}
-          color="secondary"
-          mini
+          color='secondary'
+          size='small'
         >
           <Add />
-        </Button>
+        </Fab>
 
-        <Dialog
+        <MuiDialog
           open={open}
           onClose={this.handleToggle}
           fullWidth
-          maxWidth="xs"
+          maxWidth='xs'
         >
           <DialogTitle>Create a New Exercise</DialogTitle>
           <DialogContent>
@@ -58,10 +59,10 @@ class CreateDialog extends Component {
               onSubmit={this.handleFormSubmit}
             />
           </DialogContent>
-        </Dialog>
-      </Fragment>
+        </MuiDialog>
+      </>
     )
   }
 }
 
-export default withContext(CreateDialog)
+export default Dialog
