@@ -63,10 +63,6 @@ yarn # (or npm install)
 
 Serves the app at `localhost:4000` and watches files to re-builds the bundle.
 
-### `yarn dev` or `npm run dev`
-
-Builds a development bundle in `dist` folder.
-
 ### `yarn build` or `npm run build`
 
 Builds a production bundle in `dist` folder.
@@ -96,8 +92,7 @@ Uses [tree shaking](https://webpack.js.org/guides/tree-shaking/) for convenient 
 
 ### Source Maps
 
-Uses [`cheap-module-source-map
-`](https://webpack.js.org/configuration/devtool/) for  debugging.
+Uses [`cheap-module-source-map`](https://webpack.js.org/configuration/devtool/) for debugging.
 
 ### Browser Support
 
