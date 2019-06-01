@@ -5,7 +5,7 @@ import { Catalog, Preview } from './'
 
 const styles = theme => ({
   paper: {
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
     overflowY: 'auto',
     [theme.breakpoints.up('sm')]: {
       marginTop: 5,

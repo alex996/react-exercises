@@ -14,12 +14,7 @@ const theme = createMuiTheme({
     },
     type: 'dark'
   },
-  spacing: {
-    unit: 10
-  },
-  typography: {
-    useNextVariants: true
-  }
+  spacing: 10
 })
 
 render(

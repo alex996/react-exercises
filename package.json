@@ -5,33 +5,36 @@
   "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server --open --port 4000 --compress --mode development",
-    "build": "rm -rf dist && webpack --mode production --progress",
-    "stats": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json dist",
+    "prebuild": "rimraf dist",
+    "build": "webpack --mode production --progress",
+    "prestats": "webpack --profile --json > stats.json",
+    "stats": " webpack-bundle-analyzer stats.json dist",
     "serve": "serve dist"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "@material-ui/icons": "^3.0.2",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
+    "@material-ui/core": "^4.0.1",
+    "@material-ui/icons": "^4.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "recompose": "^0.30.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.3.0",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-import": "^1.11.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
-    "serve": "^10.1.2",
+    "rimraf": "^2.6.3",
+    "serve": "^11.0.1",
     "standard": "^12.0.1",
-    "webpack": "^4.29.3",
-    "webpack-bundle-analyzer": "^3.0.4",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14"
+    "webpack": "^4.32.2",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.1"
   },
   "standard": {
     "parser": "babel-eslint"
