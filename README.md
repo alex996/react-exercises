@@ -6,14 +6,14 @@ Exercise database app built with [React](https://reactjs.org/) and [Material-UI]
 
 This `master` branch houses the most up-to-date code. For a particular topic, switch to one of the following branches.
 
-#### 🚀 SPA bundle size-optimizations
+#### ⚡ SPA bundle size-optimizations
 
 - **before** at [`spa/unoptimized`](https://github.com/alex996/react-exercises/tree/spa/unoptimized), and
 - **after** at [`spa/optimized`](https://github.com/alex996/react-exercises/tree/spa/optimized)
   - [compare branches](https://github.com/alex996/react-exercises/compare/spa/unoptimized...spa/optimized) to view the diff, and
   - see [README](https://github.com/alex996/react-exercises/tree/spa/unoptimized#readme) for a complete walkthrough
 
-#### 💾 SPA to SSR refactoring
+#### 🚀 SPA to SSR refactoring
 
 - **before** at [`ssr/starter`](https://github.com/alex996/react-exercises/tree/ssr/starter), and
 - **after** at [`ssr/final`](https://github.com/alex996/react-exercises/tree/ssr/final)
@@ -75,16 +75,69 @@ Generates Webpack stats JSON file and renders a dependency treemap.
 
 Statically serves the contents of `dist` folder.
 
-## ℹ️ Other
+## ⚠️ Breaking Changes
 
 ### Import Path
 
-`material-ui` had a breaking change in [`v1.0.0-rc.0`](https://github.com/mui-org/material-ui/releases/tag/v1.0.0-rc.0) whereby the import path has been flattened. Ex:
+As of [`v1.0.0-rc.0`](https://github.com/mui-org/material-ui/releases/tag/v1.0.0-rc.0), the import path has been flattened:
 
 ```diff
 -import { Tab } from 'material-ui/Tabs'
 +import { Tab } from '@material-ui/core'
 ```
+
+### Material Icons
+
+`material-ui-icons` package has been deprecated in favor of `@material-ui/icons`. In `package.json`:
+
+```diff
+-"material-ui-icons": "^1.0.0-beta.36",
++"@materia-ui/icons": "^1.0.0",
+```
+
+### Typography Variants
+
+- v3.x.x - configure the theme
+
+```js
+const theme = createMuiTheme({
+  // ...
+  typography: {
+    useNextVariants: true,
+  },
+}
+```
+
+- v4.x.x - latest variants are applied by default 🎉
+
+```diff
+-typography: {
+-  useNextVariants: true,
+-},
+```
+
+### Components
+
+- Button
+
+```diff
+-<Button variant='raised' />
++<Button variant='contained' />
+```
+
+```diff
+-<Button variant='fab' />
++<Fab />
+```
+
+- Tabs
+
+```diff
+-<Tabs scrollable />
++<Tabs variant='scrollable' />
+```
+
+## ℹ️ Other
 
 ### Named Imports
 
