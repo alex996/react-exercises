@@ -3,10 +3,12 @@
     [
       "@babel/env",
       {
+        "modules": false,
         "useBuiltIns": "entry",
+        "corejs": 3,
         "targets": {
           "browsers": "> 1%, not ie 11, not op_mini all",
-          "node": 10
+          "node": 12
         }
       }
     ], "@babel/react"

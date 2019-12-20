@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {
-  Button,
+  Fab,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -33,14 +33,13 @@ class CreateDialog extends Component {
 
     return (
       <Fragment>
-        <Button
-          variant="fab"
+        <Fab
           onClick={this.handleToggle}
           color="secondary"
-          mini
+          size="small"
         >
           <Add />
-        </Button>
+        </Fab>
 
         <Dialog
           open={open}

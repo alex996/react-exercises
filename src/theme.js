@@ -11,9 +11,7 @@ export default createMuiTheme({
     },
     type: 'dark'
   },
-  spacing: {
-    unit: 10
-  },
+  spacing: 10,
   props: {
     MuiWithWidth: {
       initialWidth: 'lg'

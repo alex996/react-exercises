@@ -1,10 +1,6 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { SheetsRegistry } from 'react-jss/lib/jss'
-import JssProvider from 'react-jss/lib/JssProvider'
-import {
-  MuiThemeProvider, createGenerateClassName
-} from '@material-ui/core/styles'
+import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles'
 import express from 'express'
 import reload from 'reload'
 import App from './Components/App'
@@ -22,21 +18,17 @@ if (dev) {
 }
 
 app.use((req, res) => {
-  const sheetsRegistry = new SheetsRegistry()
-
-  const generateClassName = createGenerateClassName()
-
-  const sheetsManager = new Map()
+  const sheets = new ServerStyleSheets()
 
   const html = renderToString(
-    <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
-      <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
+    sheets.collect(
+      <ThemeProvider theme={theme}>
         <App />
-      </MuiThemeProvider>
-    </JssProvider>
+      </ThemeProvider>
+    )
   )
 
-  const css = sheetsRegistry.toString()
+  const css = sheets.toString()
 
   res.send(`
     <!DOCTYPE html>
@@ -56,7 +48,7 @@ app.use((req, res) => {
     </body>
 
     </html>
-  `)
+  `.trim())
 })
 
 app.listen(port, () => console.log(`http://localhost:${port}`))

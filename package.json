@@ -4,18 +4,19 @@
   "license": "MIT",
   "main": "dist/main.js",
   "scripts": {
-    "start": "node dist/main",
+    "start": "NODE_ENV=production node dist/main",
+    "start:dev": "node dist/main",
     "watch": "webpack --mode development --watch & nodemon dist/main",
     "dev": "rm -rf dist public && webpack --mode development --progress",
     "build": "rm -rf dist public && webpack --mode production --progress",
     "stats": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json dist"
   },
   "dependencies": {
-    "@material-ui/core": "^3.1.0",
-    "@material-ui/icons": "^3.0.1",
+    "@material-ui/core": "^4.8.0",
+    "@material-ui/icons": "^4.5.1",
     "express": "^4.16.3",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -25,8 +26,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-import": "^1.9.1",
-    "nodemon": "^1.18.4",
-    "reload": "^2.3.1",
+    "core-js": "^3.6.0",
+    "nodemon": "^2.0.2",
+    "reload": "^3.0.3",
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.1",

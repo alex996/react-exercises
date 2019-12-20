@@ -4,7 +4,13 @@ const common = {
   devtool: 'cheap-module-source-map',
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
     ]
   },
   resolve: {
@@ -26,10 +32,6 @@ module.exports = [
     ...common,
     target: 'node',
     entry: './src/server',
-    externals: [nodeExternals({
-      whitelist: [
-        /@material-ui\/core\/*./
-      ]
-    })]
+    externals: [nodeExternals()]
   }
 ]
