@@ -1,7 +1,7 @@
 import '@babel/polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 import { red, amber } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
@@ -14,17 +14,15 @@ const theme = createMuiTheme({
     },
     type: 'dark'
   },
-  spacing: {
-    unit: 10
-  }
+  spacing: 10
 })
 
 import(/* webpackChunkName: 'app' */ './Components/App')
   .then(({ default: App }) =>
     render(
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <App />
-      </MuiThemeProvider>,
+      </ThemeProvider>,
       document.getElementById('root')
     )
   )
