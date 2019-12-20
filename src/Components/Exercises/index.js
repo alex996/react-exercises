@@ -16,7 +16,7 @@ import Form from './Form'
 
 const styles = theme => ({
   paper: {
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
     overflowY: 'auto',
     [theme.breakpoints.up('sm')]: {
       marginTop: 5,
@@ -72,7 +72,7 @@ const Exercises = ({
               <Fragment key={group}>
                 <Typography
                   color="secondary"
-                  variant="headline"
+                  variant="h5"
                   style={{ textTransform: 'capitalize' }}
                 >
                   {group}
@@ -111,7 +111,7 @@ const Exercises = ({
       <Paper className={classes.paper}>
         <Typography
           gutterBottom
-          variant="display1"
+          variant="h4"
           color="secondary"
         >
           {title}
@@ -124,7 +124,7 @@ const Exercises = ({
             onSubmit={onEdit}
           />
         ) : (
-          <Typography variant="subheading">{description}</Typography>
+          <Typography variant="h6">{description}</Typography>
         )}
       </Paper>
     </Grid>

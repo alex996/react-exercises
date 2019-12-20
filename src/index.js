@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { red, amber } from '@material-ui/core/colors'
 import App from './Components/App'
 
@@ -14,14 +14,12 @@ const theme = createMuiTheme({
     },
     type: 'dark'
   },
-  spacing: {
-    unit: 10
-  }
+  spacing: 10
 })
 
 render(
-  <MuiThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
     <App />
-  </MuiThemeProvider>,
+  </ThemeProvider>,
   document.getElementById('root')
 )

@@ -13,7 +13,7 @@ export default withStyles(styles)(({ classes }) => (
   <AppBar position="static">
     <Toolbar>
       <Typography
-        variant="headline"
+        variant="h5"
         color="inherit"
         className={classes.flex}
       >

@@ -17,6 +17,7 @@ class Footer extends Component {
 
   render() {
     const { width, muscles } = this.props
+    const isMobile = width === 'xs'
 
     return (
       <AppBar position="static">
@@ -25,12 +26,12 @@ class Footer extends Component {
           onChange={this.onIndexSelect}
           indicatorColor="secondary"
           textColor="secondary"
-          centered={width !== 'xs'}
-          scrollable={width === 'xs'}
+          variant={isMobile ? 'scrollable' : 'standard'}
+          centered={!isMobile}
         >
           <Tab label="All" />
-          {muscles.map(group => <Tab key={group} label={group} />)}
-        </Tabs>
+            {muscles.map(group => <Tab key={group} label={group} />)}
+          </Tabs>
       </AppBar>
     )
   }
