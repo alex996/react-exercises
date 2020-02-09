@@ -49,23 +49,27 @@ yarn # (or npm install)
 
 ### `yarn start` or `npm start`
 
-Serves the app at `localhost:4000` and watches files to re-builds the bundle.
+Starts the Node server on port `3000` in production mode.
 
-### `yarn dev` or `npm run dev`
+### `yarn start` or `npm run start:dev`
 
-Builds a development bundle in `dist` folder.
+Starts the Node server on port `3000` in development mode.
+
+### `yarn watch` or `npm run watch`
+
+Serves the app at `localhost:3000` and watches files to re-builds the bundle.
 
 ### `yarn build` or `npm run build`
 
 Builds a production bundle in `dist` folder.
 
+### `yarn build:dev` or `npm run build:dev`
+
+Builds a development bundle in `dist` folder.
+
 ### `yarn stats` or `npm run stats`
 
 Generates Webpack stats JSON file and renders a dependency treemap.
-
-### `yarn serve` or `npm run serve`
-
-Statically serves the contents of `dist` folder.
 
 ## ℹ️ Other
 
