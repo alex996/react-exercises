@@ -12,12 +12,7 @@ const common = {
         }
       }
     ]
-  },
-  resolve: {
-    alias: {
-      '@material-ui/core': '@material-ui/core/es'
-    }
-  },
+  }
 }
 
 module.exports = [

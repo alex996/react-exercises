@@ -12,26 +12,26 @@
     "stats": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json dist"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.1",
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "express": "^4.16.3",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
-    "babel-loader": "^8.0.2",
-    "babel-plugin-import": "^1.9.1",
-    "core-js": "^3.6.4",
-    "nodemon": "^2.0.2",
-    "reload": "^3.0.4",
-    "webpack": "^4.41.5",
-    "webpack-bundle-analyzer": "^3.0.2",
-    "webpack-cli": "^3.1.1",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.0",
+    "core-js": "^3.6.5",
+    "nodemon": "^2.0.4",
+    "reload": "^3.1.0",
+    "webpack": "^4.44.1",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   }
 }
