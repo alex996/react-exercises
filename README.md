@@ -1,5 +1,7 @@
 # react-exercises
 
+> Note, this project was completed in late 2018 before React hooks came out. For a more up-to-date tutorial, visit [Learn Material-UI](https://material-ui.com/getting-started/learn/).
+
 Exercise database app built with [React](https://reactjs.org/) and [Material-UI](https://material-ui.com/) using [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/docs/en).
 
 ## ☘️ Branches
